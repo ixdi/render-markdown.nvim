@@ -59,7 +59,8 @@ end
 ---@param callback fun()
 function View:parse(parser, callback)
     for _, range in ipairs(self.ranges) do
-        parser:parse(range)
+        parser:set_included_regions({ range })
+        parser:parse()
     end
     callback()
 end
